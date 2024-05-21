@@ -22,8 +22,8 @@ public class KnightService {
         this.inventoryItemRepository = inventoryItemRepository;
     }
 
-    public List<Knight> getAllKnights() {
-        return repository.findAll();
+    public Optional<Knight> getKnight() {
+        return repository.findFirstBy();
     }
 
     public Knight getKnightById(Integer id) {

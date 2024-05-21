@@ -3,38 +3,34 @@ package witold.knightequipbackend.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import witold.knightequipbackend.dtos.InventoryItemDTO;
+import witold.knightequipbackend.dtos.KnightDTO;
 import witold.knightequipbackend.entities.Knight;
 import witold.knightequipbackend.services.KnightService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/knights")
 public class KnightController {
 
     private final KnightService service;
+    private final KnightService knightService;
 
     @Autowired
-    public KnightController(KnightService service) {
+    public KnightController(KnightService service, KnightService knightService) {
         this.service = service;
+        this.knightService = knightService;
     }
 
     @GetMapping
-    public List<Knight> getAllKnights() {
-        return service.getAllKnights();
+    public ResponseEntity<KnightDTO> getKnight() {
+        Optional<Knight> knight = knightService.getKnight();
+        return knight.map(value -> ResponseEntity.ok(KnightDTO.fromEntity(value))).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Knight> getKnightById(@PathVariable Integer id) {
-        Knight knight = service.getKnightById(id);
-        if (knight != null) {
-            return ResponseEntity.ok(knight);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    @PostMapping("/add")
+    @PostMapping
     public Knight addKnight() {
         return service.addKnight();
     }
