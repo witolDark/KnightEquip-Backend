@@ -31,7 +31,6 @@ public class InventoryItemService {
         return repository.findById(id);
     }
 
-
     public InventoryItem addItem() {
         InventoryItem item = new InventoryItem();
         return repository.save(item);
@@ -40,6 +39,5 @@ public class InventoryItemService {
     public void deleteItem(Long id) {
         repository.deleteById(id);
     }
-
 }
 

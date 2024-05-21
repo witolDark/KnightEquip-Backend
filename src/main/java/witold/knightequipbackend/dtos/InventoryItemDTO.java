@@ -1,5 +1,6 @@
 package witold.knightequipbackend.dtos;
 
+import witold.knightequipbackend.entities.InventoryItem;
 import witold.knightequipbackend.enums.ItemType;
 import witold.knightequipbackend.enums.MainStats;
 import witold.knightequipbackend.enums.Rarity;
@@ -59,5 +60,27 @@ public class InventoryItemDTO {
 
     public void setWeight(Double weight) {
         this.weight = weight;
+    }
+
+    public static InventoryItemDTO fromEntity(InventoryItem item) {
+        InventoryItemDTO itemDTO = new InventoryItemDTO();
+        itemDTO.setLevel(item.getLevel());
+        itemDTO.setRarity(item.getRarity());
+        itemDTO.setType(item.getType());
+        itemDTO.setMainStat(item.getMainStat());
+        itemDTO.setMainStatValue(item.getMainStatValue());
+        itemDTO.setWeight(item.getWeight());
+        return itemDTO;
+    }
+
+    public static InventoryItem toEntity(InventoryItemDTO itemDTO) {
+        InventoryItem item = new InventoryItem();
+        item.setLevel(itemDTO.getLevel());
+        item.setRarity(itemDTO.getRarity());
+        item.setType(itemDTO.getType());
+        item.setMainStat(itemDTO.getMainStat());
+        item.setMainStatValue(itemDTO.getMainStatValue());
+        item.setWeight(itemDTO.getWeight());
+        return item;
     }
 }
