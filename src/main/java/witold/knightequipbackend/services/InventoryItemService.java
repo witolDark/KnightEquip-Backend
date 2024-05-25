@@ -1,6 +1,9 @@
 package witold.knightequipbackend.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import witold.knightequipbackend.entities.InventoryItem;
 import witold.knightequipbackend.enums.ItemType;
@@ -19,8 +22,10 @@ public class InventoryItemService {
         this.repository = repository;
     }
 
-    public List<InventoryItem> getAllItems() {
-        return repository.findAll();
+    public Page<InventoryItem> getAllItems(int page, int size, String[] sort) {
+        Sort.Direction direction = Sort.Direction.fromString(sort[1]);
+        PageRequest pageRequest = PageRequest.of(page, size, Sort.by(direction, sort[0]));
+        return repository.findAll(pageRequest);
     }
 
     public List<InventoryItem> getItemsByType(ItemType type) {

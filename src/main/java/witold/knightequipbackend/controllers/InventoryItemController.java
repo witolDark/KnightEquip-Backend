@@ -1,6 +1,7 @@
 package witold.knightequipbackend.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import witold.knightequipbackend.dtos.InventoryItemDTO;
@@ -24,9 +25,13 @@ public class InventoryItemController {
     }
 
     @GetMapping
-    public List<InventoryItemDTO> getAllItems() {
-        return service.getAllItems().stream().map(InventoryItemDTO::fromEntity).collect(Collectors.toList());
+    public Page<InventoryItemDTO> getAllItems(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(defaultValue = "level,DESC") String[] sort) {
+        return service.getAllItems(page, size, sort).map(InventoryItemDTO::fromEntity);
     }
+
 
     @GetMapping("/by-type/{type}")
     public List<InventoryItemDTO> getAllItemsByType(@PathVariable ItemType type) {
@@ -40,7 +45,7 @@ public class InventoryItemController {
         return item.map(value -> ResponseEntity.ok(InventoryItemDTO.fromEntity(value))).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/add")
+    @PostMapping
     public InventoryItemDTO addItem() {
         return InventoryItemDTO.fromEntity(service.addItem());
     }

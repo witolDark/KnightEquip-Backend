@@ -3,12 +3,10 @@ package witold.knightequipbackend.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import witold.knightequipbackend.dtos.InventoryItemDTO;
 import witold.knightequipbackend.dtos.KnightDTO;
 import witold.knightequipbackend.entities.Knight;
 import witold.knightequipbackend.services.KnightService;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController

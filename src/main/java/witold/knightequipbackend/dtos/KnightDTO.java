@@ -142,11 +142,21 @@ public class KnightDTO {
         dto.setEnergyRecharge(knight.getEnergyRecharge());
         dto.setCritDamage(knight.getCritDamage());
         dto.setCritRate(knight.getCritRate());
-        dto.setHelmet(InventoryItemDTO.fromEntity(knight.getHelmet()));
-        dto.setCloak(InventoryItemDTO.fromEntity(knight.getCloak()));
-        dto.setChestplate(InventoryItemDTO.fromEntity(knight.getChestplate()));
-        dto.setBoots(InventoryItemDTO.fromEntity(knight.getBoots()));
-        dto.setSword(InventoryItemDTO.fromEntity(knight.getSword()));
+        if (knight.getHelmet() != null) {
+            dto.setHelmet(InventoryItemDTO.fromEntity(knight.getHelmet()));
+        } else dto.setHelmet(null);
+        if (knight.getCloak() != null) {
+            dto.setCloak(InventoryItemDTO.fromEntity(knight.getCloak()));
+        } else dto.setCloak(null);
+        if (knight.getChestplate() != null) {
+            dto.setChestplate(InventoryItemDTO.fromEntity(knight.getChestplate()));
+        } else dto.setChestplate(null);
+        if (knight.getBoots() != null) {
+            dto.setBoots(InventoryItemDTO.fromEntity(knight.getBoots()));
+        } else dto.setBoots(null);
+        if (knight.getSword() != null) {
+            dto.setSword(InventoryItemDTO.fromEntity(knight.getSword()));
+        } else dto.setSword(null);
         return dto;
     }
 
