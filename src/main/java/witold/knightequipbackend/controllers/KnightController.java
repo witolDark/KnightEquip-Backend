@@ -43,6 +43,16 @@ public class KnightController {
         }
     }
 
+    @PatchMapping("/unequip")
+    public ResponseEntity<Knight> unequipKnight(@RequestParam Long itemId) {
+        Knight updatedKnight = service.unequipByInventoryItem(itemId);
+        if (updatedKnight != null) {
+            return ResponseEntity.ok(updatedKnight);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteKnight(@PathVariable Integer id) {
         service.deleteKnight(id);

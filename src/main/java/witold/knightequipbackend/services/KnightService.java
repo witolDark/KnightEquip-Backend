@@ -7,7 +7,6 @@ import witold.knightequipbackend.entities.Knight;
 import witold.knightequipbackend.repositories.InventoryItemRepository;
 import witold.knightequipbackend.repositories.KnightRepository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -42,6 +41,15 @@ public class KnightService {
         InventoryItem itemToSwitch = inventoryItemRepository.findById(id).orElseThrow(() -> new RuntimeException("InventoryItem not found"));
 
         knight.equipItem(itemToSwitch);
+        return repository.save(knight);
+    }
+
+    public Knight unequipByInventoryItem(Long id) {
+        Knight knight = repository.findFirstBy()
+                .orElseThrow(() -> new RuntimeException("Knight not found"));
+        InventoryItem itemToUnequip= inventoryItemRepository.findById(id).orElseThrow(() -> new RuntimeException("InventoryItem not found"));
+
+        knight.unequipItem(itemToUnequip);
         return repository.save(knight);
     }
 

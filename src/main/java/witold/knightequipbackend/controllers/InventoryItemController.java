@@ -41,10 +41,4 @@ public class InventoryItemController {
     public InventoryItemDTO addItem() {
         return InventoryItemDTO.fromEntity(service.addItem());
     }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteItem(@PathVariable Long id) {
-        service.deleteItem(id);
-        return ResponseEntity.noContent().build();
-    }
 }
