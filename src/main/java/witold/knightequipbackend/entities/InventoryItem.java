@@ -21,11 +21,6 @@ public class InventoryItem {
     private MainStats mainStat;
     private Double mainStatValue;
     private Double weight;
-//    @ElementCollection
-//    @CollectionTable(name = "inventory_item_sub_stats", joinColumns = @JoinColumn(name = "inventory_item_id"))
-//    @MapKeyEnumerated(EnumType.STRING)
-//    @Column(name = "value")
-//    private Map<SubStats, Double> subStats = new EnumMap<>(SubStats.class);
 
     public InventoryItem() {
         this.level = (int) (Math.random() * 20 + 1);
@@ -34,8 +29,6 @@ public class InventoryItem {
         this.mainStat = MainStats.values()[(int) (Math.random() * MainStats.values().length)];
         this.mainStatValue = getMainStatValueByLevel();
         this.weight = getWeightByLevelAndType();
-//        this.subStats = generateRandomSubStats();
-//        adjustSubStats();
     }
 
     private Rarity getRarityByLevel() {
@@ -84,6 +77,14 @@ public class InventoryItem {
 //            this.subStats.put(randomSubStat, this.subStats.get(randomSubStat) + 7.6);
 //        }
 //    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Integer getLevel() {
         return level;

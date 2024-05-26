@@ -33,8 +33,8 @@ public class KnightController {
         return service.addKnight();
     }
 
-    @PatchMapping("/{itemId}")
-    public ResponseEntity<Knight> updateKnightByInventoryItem(@PathVariable Long itemId) {
+    @PatchMapping
+    public ResponseEntity<Knight> updateKnightByInventoryItem(@RequestParam Long itemId) {
         Knight updatedKnight = service.updateKnightByInventoryItem(itemId);
         if (updatedKnight != null) {
             return ResponseEntity.ok(updatedKnight);

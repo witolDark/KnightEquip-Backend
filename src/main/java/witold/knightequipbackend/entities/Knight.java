@@ -46,23 +46,64 @@ public class Knight {
 
     public void equipItem(InventoryItem inventoryItem) {
         switch (inventoryItem.getType()) {
-            case BOOTS -> setBoots(inventoryItem);
-            case CHESTPLATE -> setChestplate(inventoryItem);
-            case HELMET -> setHelmet(inventoryItem);
-            case CLOAK -> setCloak(inventoryItem);
-            case SWORD -> setSword(inventoryItem);
+            case BOOTS:
+                if(getBoots() != null)
+                    unequipItem(getBoots());
+                setBoots(inventoryItem);
+                break;
+            case CHESTPLATE:
+                if(getChestplate() != null)
+                    unequipItem(getChestplate());
+                setChestplate(inventoryItem);
+                break;
+            case HELMET:
+                if(getHelmet() != null)
+                    unequipItem(getHelmet());
+                setHelmet(inventoryItem);
+                break;
+            case CLOAK:
+                if (getCloak() != null)
+                    unequipItem(getCloak());
+                setCloak(inventoryItem);
+                break;
+            case SWORD:
+                if (getSword() != null)
+                    unequipItem(getSword());
+                setSword(inventoryItem);
+                break;
         }
-        updateKnight(inventoryItem);
+        updateKnightIncrease(inventoryItem);
     }
 
-    public void updateKnight(InventoryItem inventoryItem) {
+    public void updateKnightIncrease(InventoryItem inventoryItem) {
         switch (inventoryItem.getMainStat()) {
             case CRIT_DMG -> setCritDamage(getCritDamage() + inventoryItem.getMainStatValue());
             case CRIT_RATE -> setCritRate(getCritRate() + inventoryItem.getMainStatValue());
-            case ATTACK_PERCENT -> setAdditionalDamage((int) (getBaseDamage() * inventoryItem.getMainStatValue()));
+            case ATTACK_PERCENT -> setAdditionalDamage((int) (getBaseDamage() * (inventoryItem.getMainStatValue() / 100)));
             case ELEMENTAL_MASTERY ->
                     setElementalMastery((int) (getElementalMastery() + inventoryItem.getMainStatValue()));
             case ENERGY_RECHARGE -> setEnergyRecharge(getEnergyRecharge() + inventoryItem.getMainStatValue());
+        }
+    }
+
+    public void unequipItem(InventoryItem inventoryItem) {
+        updateKnightDecrease(inventoryItem);
+        switch (inventoryItem.getType()) {
+            case BOOTS -> setBoots(null);
+            case CHESTPLATE -> setChestplate(null);
+            case HELMET -> setHelmet(null);
+            case CLOAK -> setCloak(null);
+            case SWORD -> setSword(null);
+        }
+    }
+
+    public void updateKnightDecrease(InventoryItem inventoryItem) {
+        switch (inventoryItem.getMainStat()) {
+            case ATTACK_PERCENT -> setAdditionalDamage((int)(getAdditionalDamage() - (getBaseDamage() * (inventoryItem.getMainStatValue() / 100))));
+            case CRIT_DMG -> setCritDamage(getCritDamage() - inventoryItem.getMainStatValue());
+            case CRIT_RATE -> setCritRate(getCritRate() - inventoryItem.getMainStatValue());
+            case ELEMENTAL_MASTERY -> setElementalMastery((int)(getElementalMastery() - inventoryItem.getMainStatValue()));
+            case ENERGY_RECHARGE -> setEnergyRecharge(getEnergyRecharge() - inventoryItem.getMainStatValue());
         }
     }
 

@@ -9,9 +9,7 @@ import witold.knightequipbackend.entities.InventoryItem;
 import witold.knightequipbackend.enums.ItemType;
 import witold.knightequipbackend.services.InventoryItemService;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/inventory")
@@ -28,15 +26,9 @@ public class InventoryItemController {
     public Page<InventoryItemDTO> getAllItems(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size,
-            @RequestParam(defaultValue = "level,DESC") String[] sort) {
-        return service.getAllItems(page, size, sort).map(InventoryItemDTO::fromEntity);
-    }
-
-
-    @GetMapping("/by-type/{type}")
-    public List<InventoryItemDTO> getAllItemsByType(@PathVariable ItemType type) {
-        List<InventoryItem> items = service.getItemsByType(type);
-        return items.stream().map(InventoryItemDTO::fromEntity).collect(Collectors.toList());
+            @RequestParam(defaultValue = "level,DESC") String[] sort,
+            @RequestParam(required = false) ItemType type) {
+        return service.getAllItems(page, size, sort, type).map(InventoryItemDTO::fromEntity);
     }
 
     @GetMapping("/{id}")

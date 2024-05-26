@@ -7,12 +7,21 @@ import witold.knightequipbackend.enums.Rarity;
 
 public class InventoryItemDTO {
 
+    private Long id;
     private Integer level;
     private Rarity rarity;
     private ItemType type;
     private MainStats mainStat;
     private Double mainStatValue;
     private Double weight;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Integer getLevel() {
         return level;
@@ -64,6 +73,7 @@ public class InventoryItemDTO {
 
     public static InventoryItemDTO fromEntity(InventoryItem item) {
         InventoryItemDTO itemDTO = new InventoryItemDTO();
+        itemDTO.setId(item.getId());
         itemDTO.setLevel(item.getLevel());
         itemDTO.setRarity(item.getRarity());
         itemDTO.setType(item.getType());
@@ -75,6 +85,7 @@ public class InventoryItemDTO {
 
     public static InventoryItem toEntity(InventoryItemDTO itemDTO) {
         InventoryItem item = new InventoryItem();
+        item.setId(itemDTO.getId());
         item.setLevel(itemDTO.getLevel());
         item.setRarity(itemDTO.getRarity());
         item.setType(itemDTO.getType());
