@@ -1,0 +1,104 @@
+2024-06-11 21:34:50.241 [restartedMain] INFO  w.k.KnightEquipBackendApplication - Starting KnightEquipBackendApplication using Java 22.0.1 with PID 12568 (C:\Users\wital\IdeaProjects\KnightEquip-Backend\target\classes started by wital in C:\Users\wital\IdeaProjects\KnightEquip-Backend)
+2024-06-11 21:34:50.243 [restartedMain] INFO  w.k.KnightEquipBackendApplication - No active profile set, falling back to 1 default profile: "default"
+2024-06-11 21:34:50.278 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-11 21:34:50.278 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-11 21:34:50.886 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-11 21:34:50.942 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 48 ms. Found 2 JPA repository interfaces.
+2024-06-11 21:34:51.485 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-06-11 21:34:51.497 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-11 21:34:51.498 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-11 21:34:51.498 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-11 21:34:51.546 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-11 21:34:51.546 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1268 ms
+2024-06-11 21:34:51.674 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-11 21:34:51.731 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-11 21:34:51.763 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-11 21:34:51.992 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-11 21:34:52.016 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-11 21:34:52.215 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@c61bbb
+2024-06-11 21:34:52.216 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-11 21:34:53.133 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-11 21:34:53.270 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-11 21:34:53.545 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-11 21:34:53.800 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-06-11 21:34:53.814 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-06-11 21:34:53.834 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-06-11 21:34:53.843 [restartedMain] INFO  w.k.KnightEquipBackendApplication - Started KnightEquipBackendApplication in 4.037 seconds (process running for 5.52)
+2024-06-11 21:35:56.598 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-11 21:35:56.598 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-11 21:35:56.600 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-06-11 21:35:56.689 [http-nio-8080-exec-1] INFO  w.k.services.KnightService - Fetching the first knight from the repository
+2024-06-11 21:36:00.750 [http-nio-8080-exec-5] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: CLOAK
+2024-06-11 21:36:00.750 [http-nio-8080-exec-6] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: CHESTPLATE
+2024-06-11 21:36:00.750 [http-nio-8080-exec-3] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: SWORD
+2024-06-11 21:36:00.750 [http-nio-8080-exec-7] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: BOOTS
+2024-06-11 21:36:00.750 [http-nio-8080-exec-4] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: HELMET
+2024-06-11 21:36:00.753 [http-nio-8080-exec-5] INFO  w.k.services.InventoryItemService - Filtering items by type: CLOAK
+2024-06-11 21:36:00.753 [http-nio-8080-exec-6] INFO  w.k.services.InventoryItemService - Filtering items by type: CHESTPLATE
+2024-06-11 21:36:00.753 [http-nio-8080-exec-3] INFO  w.k.services.InventoryItemService - Filtering items by type: SWORD
+2024-06-11 21:36:00.753 [http-nio-8080-exec-4] INFO  w.k.services.InventoryItemService - Filtering items by type: HELMET
+2024-06-11 21:36:00.753 [http-nio-8080-exec-7] INFO  w.k.services.InventoryItemService - Filtering items by type: BOOTS
+2024-06-11 21:36:00.814 [http-nio-8080-exec-6] INFO  w.k.services.InventoryItemService - Fetched 17 items
+2024-06-11 21:36:00.814 [http-nio-8080-exec-3] INFO  w.k.services.InventoryItemService - Fetched 34 items
+2024-06-11 21:36:00.814 [http-nio-8080-exec-5] INFO  w.k.services.InventoryItemService - Fetched 23 items
+2024-06-11 21:36:00.814 [http-nio-8080-exec-7] INFO  w.k.services.InventoryItemService - Fetched 21 items
+2024-06-11 21:36:00.814 [http-nio-8080-exec-4] INFO  w.k.services.InventoryItemService - Fetched 23 items
+2024-06-11 21:36:02.825 [http-nio-8080-exec-6] INFO  w.k.services.InventoryItemService - Adding a new inventory item
+2024-06-11 21:36:02.873 [http-nio-8080-exec-6] INFO  w.k.services.InventoryItemService - Inventory item added with ID: 119
+2024-06-11 21:36:03.349 [http-nio-8080-exec-3] INFO  w.k.services.InventoryItemService - Adding a new inventory item
+2024-06-11 21:36:03.352 [http-nio-8080-exec-3] INFO  w.k.services.InventoryItemService - Inventory item added with ID: 120
+2024-06-11 21:36:03.992 [http-nio-8080-exec-4] INFO  w.k.services.InventoryItemService - Adding a new inventory item
+2024-06-11 21:36:03.996 [http-nio-8080-exec-4] INFO  w.k.services.InventoryItemService - Inventory item added with ID: 121
+2024-06-11 21:36:04.493 [http-nio-8080-exec-7] INFO  w.k.services.InventoryItemService - Adding a new inventory item
+2024-06-11 21:36:04.496 [http-nio-8080-exec-7] INFO  w.k.services.InventoryItemService - Inventory item added with ID: 122
+2024-06-11 21:36:28.850 [http-nio-8080-exec-8] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: CLOAK
+2024-06-11 21:36:28.850 [http-nio-8080-exec-8] INFO  w.k.services.InventoryItemService - Filtering items by type: CLOAK
+2024-06-11 21:36:28.850 [http-nio-8080-exec-2] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: HELMET
+2024-06-11 21:36:28.850 [http-nio-8080-exec-2] INFO  w.k.services.InventoryItemService - Filtering items by type: HELMET
+2024-06-11 21:36:28.853 [http-nio-8080-exec-5] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: BOOTS
+2024-06-11 21:36:28.858 [http-nio-8080-exec-8] INFO  w.k.services.InventoryItemService - Fetched 24 items
+2024-06-11 21:36:28.858 [http-nio-8080-exec-5] INFO  w.k.services.InventoryItemService - Filtering items by type: BOOTS
+2024-06-11 21:36:28.865 [http-nio-8080-exec-2] INFO  w.k.services.InventoryItemService - Fetched 24 items
+2024-06-11 21:36:28.866 [http-nio-8080-exec-9] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: CHESTPLATE
+2024-06-11 21:36:28.866 [http-nio-8080-exec-9] INFO  w.k.services.InventoryItemService - Filtering items by type: CHESTPLATE
+2024-06-11 21:36:28.872 [http-nio-8080-exec-10] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: SWORD
+2024-06-11 21:36:28.879 [http-nio-8080-exec-5] INFO  w.k.services.InventoryItemService - Fetched 22 items
+2024-06-11 21:36:28.882 [http-nio-8080-exec-9] INFO  w.k.services.InventoryItemService - Fetched 18 items
+2024-06-11 21:36:28.872 [http-nio-8080-exec-10] INFO  w.k.services.InventoryItemService - Filtering items by type: SWORD
+2024-06-11 21:36:28.904 [http-nio-8080-exec-10] INFO  w.k.services.InventoryItemService - Fetched 34 items
+2024-06-11 21:36:31.184 [http-nio-8080-exec-3] INFO  w.k.services.KnightService - Updating knight with new inventory item with ID: 50
+2024-06-11 21:36:31.232 [http-nio-8080-exec-3] INFO  w.k.services.KnightService - Knight updated with new inventory item. Knight ID: 1, Inventory Item ID: 50
+2024-06-11 21:36:35.535 [http-nio-8080-exec-5] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: SWORD
+2024-06-11 21:36:35.535 [http-nio-8080-exec-5] INFO  w.k.services.InventoryItemService - Filtering items by type: SWORD
+2024-06-11 21:36:35.536 [http-nio-8080-exec-6] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: CLOAK
+2024-06-11 21:36:35.536 [http-nio-8080-exec-10] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: CHESTPLATE
+2024-06-11 21:36:35.536 [http-nio-8080-exec-6] INFO  w.k.services.InventoryItemService - Filtering items by type: CLOAK
+2024-06-11 21:36:35.536 [http-nio-8080-exec-9] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: HELMET
+2024-06-11 21:36:35.536 [http-nio-8080-exec-10] INFO  w.k.services.InventoryItemService - Filtering items by type: CHESTPLATE
+2024-06-11 21:36:35.536 [http-nio-8080-exec-9] INFO  w.k.services.InventoryItemService - Filtering items by type: HELMET
+2024-06-11 21:36:35.538 [http-nio-8080-exec-3] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: BOOTS
+2024-06-11 21:36:35.538 [http-nio-8080-exec-3] INFO  w.k.services.InventoryItemService - Filtering items by type: BOOTS
+2024-06-11 21:36:35.541 [http-nio-8080-exec-9] INFO  w.k.services.InventoryItemService - Fetched 24 items
+2024-06-11 21:36:35.542 [http-nio-8080-exec-5] INFO  w.k.services.InventoryItemService - Fetched 34 items
+2024-06-11 21:36:35.543 [http-nio-8080-exec-6] INFO  w.k.services.InventoryItemService - Fetched 24 items
+2024-06-11 21:36:35.543 [http-nio-8080-exec-10] INFO  w.k.services.InventoryItemService - Fetched 18 items
+2024-06-11 21:36:35.551 [http-nio-8080-exec-3] INFO  w.k.services.InventoryItemService - Fetched 22 items
+2024-06-11 21:36:37.414 [http-nio-8080-exec-7] INFO  w.k.services.KnightService - Updating knight with new inventory item with ID: 69
+2024-06-11 21:36:37.424 [http-nio-8080-exec-7] INFO  w.k.services.KnightService - Knight updated with new inventory item. Knight ID: 1, Inventory Item ID: 69
+2024-06-11 21:36:42.572 [http-nio-8080-exec-6] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: SWORD
+2024-06-11 21:36:42.572 [http-nio-8080-exec-10] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: HELMET
+2024-06-11 21:36:42.572 [http-nio-8080-exec-6] INFO  w.k.services.InventoryItemService - Filtering items by type: SWORD
+2024-06-11 21:36:42.572 [http-nio-8080-exec-10] INFO  w.k.services.InventoryItemService - Filtering items by type: HELMET
+2024-06-11 21:36:42.572 [http-nio-8080-exec-8] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: CHESTPLATE
+2024-06-11 21:36:42.573 [http-nio-8080-exec-7] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: BOOTS
+2024-06-11 21:36:42.573 [http-nio-8080-exec-8] INFO  w.k.services.InventoryItemService - Filtering items by type: CHESTPLATE
+2024-06-11 21:36:42.573 [http-nio-8080-exec-7] INFO  w.k.services.InventoryItemService - Filtering items by type: BOOTS
+2024-06-11 21:36:42.572 [http-nio-8080-exec-3] INFO  w.k.services.InventoryItemService - Fetching all items with pagination - Page: 0, Size: 10000, Sort: [level, DESC], ItemType: CLOAK
+2024-06-11 21:36:42.573 [http-nio-8080-exec-3] INFO  w.k.services.InventoryItemService - Filtering items by type: CLOAK
+2024-06-11 21:36:42.575 [http-nio-8080-exec-10] INFO  w.k.services.InventoryItemService - Fetched 24 items
+2024-06-11 21:36:42.575 [http-nio-8080-exec-6] INFO  w.k.services.InventoryItemService - Fetched 34 items
+2024-06-11 21:36:42.576 [http-nio-8080-exec-8] INFO  w.k.services.InventoryItemService - Fetched 18 items
+2024-06-11 21:36:42.576 [http-nio-8080-exec-7] INFO  w.k.services.InventoryItemService - Fetched 22 items
+2024-06-11 21:36:42.578 [http-nio-8080-exec-3] INFO  w.k.services.InventoryItemService - Fetched 24 items
+2024-06-11 21:36:45.386 [http-nio-8080-exec-2] INFO  w.k.services.KnightService - Updating knight with new inventory item with ID: 80
+2024-06-11 21:36:45.392 [http-nio-8080-exec-2] INFO  w.k.services.KnightService - Knight updated with new inventory item. Knight ID: 1, Inventory Item ID: 80
