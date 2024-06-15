@@ -102,3 +102,6 @@
 2024-06-11 21:36:42.578 [http-nio-8080-exec-3] INFO  w.k.services.InventoryItemService - Fetched 24 items
 2024-06-11 21:36:45.386 [http-nio-8080-exec-2] INFO  w.k.services.KnightService - Updating knight with new inventory item with ID: 80
 2024-06-11 21:36:45.392 [http-nio-8080-exec-2] INFO  w.k.services.KnightService - Knight updated with new inventory item. Knight ID: 1, Inventory Item ID: 80
+2024-06-11 21:56:18.456 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-11 21:56:18.536 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-11 21:56:18.608 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
