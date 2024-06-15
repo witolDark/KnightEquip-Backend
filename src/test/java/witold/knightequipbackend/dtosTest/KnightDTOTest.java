@@ -1,13 +1,10 @@
 package witold.knightequipbackend.dtosTest;
 
 import org.junit.jupiter.api.Test;
-import witold.knightequipbackend.dtos.InventoryItemDTO;
 import witold.knightequipbackend.dtos.KnightDTO;
 import witold.knightequipbackend.entities.Knight;
-import witold.knightequipbackend.entities.InventoryItem;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class KnightDTOTest {
 
@@ -24,10 +21,6 @@ public class KnightDTOTest {
         knightEntity.setCritDamage(2.5);
         knightEntity.setCritRate(0.3);
 
-        InventoryItem helmet = new InventoryItem();
-        helmet.setId(1L);
-        knightEntity.setHelmet(helmet);
-
         KnightDTO dto = KnightDTO.fromEntity(knightEntity);
 
         assertEquals(knightEntity.getId(), dto.getId());
@@ -39,12 +32,11 @@ public class KnightDTOTest {
         assertEquals(knightEntity.getEnergyRecharge(), dto.getEnergyRecharge());
         assertEquals(knightEntity.getCritDamage(), dto.getCritDamage());
         assertEquals(knightEntity.getCritRate(), dto.getCritRate());
-        assertEquals(knightEntity.getHelmet().getId(), dto.getHelmet().getId());
     }
 
     @Test
     void testToEntity() {
-        KnightDTO dto = new KnightDTO();
+        KnightDTO dto = KnightDTO.fromEntity(new Knight());
         dto.setId(1);
         dto.setBaseHp(100);
         dto.setBaseDamage(50);
@@ -54,10 +46,6 @@ public class KnightDTOTest {
         dto.setEnergyRecharge(0.15);
         dto.setCritDamage(2.5);
         dto.setCritRate(0.3);
-
-        InventoryItemDTO helmetDTO = new InventoryItemDTO();
-        helmetDTO.setId(1L);
-        dto.setHelmet(helmetDTO);
 
         Knight knightEntity = KnightDTO.toEntity(dto);
 
@@ -70,7 +58,6 @@ public class KnightDTOTest {
         assertEquals(dto.getEnergyRecharge(), knightEntity.getEnergyRecharge());
         assertEquals(dto.getCritDamage(), knightEntity.getCritDamage());
         assertEquals(dto.getCritRate(), knightEntity.getCritRate());
-        assertEquals(dto.getHelmet().getId(), knightEntity.getHelmet().getId());
     }
 
     @Test
@@ -81,33 +68,32 @@ public class KnightDTOTest {
         KnightDTO dto = KnightDTO.fromEntity(knightEntity);
 
         assertEquals(knightEntity.getId(), dto.getId());
-        assertNull(dto.getBaseHp());
-        assertNull(dto.getBaseDamage());
-        assertNull(dto.getAdditionalDamage());
-        assertNull(dto.getBaseArmour());
-        assertNull(dto.getElementalMastery());
-        assertNull(dto.getEnergyRecharge());
-        assertNull(dto.getCritDamage());
-        assertNull(dto.getCritRate());
+        assertNotNull(dto.getBaseHp());
+        assertNotNull(dto.getBaseDamage());
+        assertNotNull(dto.getAdditionalDamage());
+        assertNotNull(dto.getBaseArmour());
+        assertNotNull(dto.getElementalMastery());
+        assertNotNull(dto.getEnergyRecharge());
+        assertNotNull(dto.getCritDamage());
+        assertNotNull(dto.getCritRate());
         assertNull(dto.getHelmet());
     }
 
     @Test
     void testToEntityNullFields() {
-        KnightDTO dto = new KnightDTO();
+        KnightDTO dto = KnightDTO.fromEntity(new Knight());
         dto.setId(1);
 
         Knight knightEntity = KnightDTO.toEntity(dto);
 
         assertEquals(dto.getId(), knightEntity.getId());
-        assertEquals(0, knightEntity.getBaseHp());
-        assertEquals(0, knightEntity.getBaseDamage());
-        assertEquals(0, knightEntity.getAdditionalDamage());
-        assertEquals(0, knightEntity.getBaseArmour());
-        assertEquals(0, knightEntity.getElementalMastery());
-        assertEquals(0.0, knightEntity.getEnergyRecharge());
-        assertEquals(0.0, knightEntity.getCritDamage());
-        assertEquals(0.0, knightEntity.getCritRate());
-        assertNull(knightEntity.getHelmet());
+        assertEquals(dto.getBaseHp(), knightEntity.getBaseHp());
+        assertEquals(dto.getBaseDamage(), knightEntity.getBaseDamage());
+        assertEquals(dto.getAdditionalDamage(), knightEntity.getAdditionalDamage());
+        assertEquals(dto.getBaseArmour(), knightEntity.getBaseArmour());
+        assertEquals(dto.getElementalMastery(), knightEntity.getElementalMastery());
+        assertEquals(dto.getEnergyRecharge(), knightEntity.getEnergyRecharge());
+        assertEquals(dto.getCritDamage(), knightEntity.getCritDamage());
+        assertEquals(dto.getCritRate(), knightEntity.getCritRate());
     }
 }

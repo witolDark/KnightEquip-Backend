@@ -27,9 +27,6 @@ public class KnightControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private KnightService service;
-
-    @MockBean
     private KnightService knightService;
 
     @Test
@@ -58,7 +55,7 @@ public class KnightControllerTest {
         Knight knight = new Knight();
         knight.setId(1);
 
-        when(service.addKnight()).thenReturn(knight);
+        when(knightService.addKnight()).thenReturn(knight);
 
         mockMvc.perform(post("/api/v1/knights")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -71,7 +68,7 @@ public class KnightControllerTest {
         Knight knight = new Knight();
         knight.setId(1);
 
-        when(service.updateKnightByInventoryItem(1L)).thenReturn(knight);
+        when(knightService.updateKnightByInventoryItem(1L)).thenReturn(knight);
 
         mockMvc.perform(patch("/api/v1/knights")
                         .param("itemId", "1"))
@@ -81,7 +78,7 @@ public class KnightControllerTest {
 
     @Test
     public void testUpdateKnightByInventoryItem_ItemNotFound() throws Exception {
-        when(service.updateKnightByInventoryItem(1L)).thenReturn(null);
+        when(knightService.updateKnightByInventoryItem(1L)).thenReturn(null);
 
         mockMvc.perform(patch("/api/v1/knights")
                         .param("itemId", "1"))
@@ -93,7 +90,7 @@ public class KnightControllerTest {
         Knight knight = new Knight();
         knight.setId(1);
 
-        when(service.unequipByInventoryItem(1L)).thenReturn(knight);
+        when(knightService.unequipByInventoryItem(1L)).thenReturn(knight);
 
         mockMvc.perform(patch("/api/v1/knights/unequip")
                         .param("itemId", "1"))
@@ -103,7 +100,7 @@ public class KnightControllerTest {
 
     @Test
     public void testUnequipKnight_ItemNotFound() throws Exception {
-        when(service.unequipByInventoryItem(1L)).thenReturn(null);
+        when(knightService.unequipByInventoryItem(1L)).thenReturn(null);
 
         mockMvc.perform(patch("/api/v1/knights/unequip")
                         .param("itemId", "1"))

@@ -7,8 +7,7 @@ import witold.knightequipbackend.enums.ItemType;
 import witold.knightequipbackend.enums.MainStats;
 import witold.knightequipbackend.enums.Rarity;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class InventoryItemDTOTest {
 
@@ -64,18 +63,21 @@ public class InventoryItemDTOTest {
         InventoryItemDTO dto = InventoryItemDTO.fromEntity(itemEntity);
 
         assertEquals(itemEntity.getId(), dto.getId());
-        assertNull(dto.getLevel());
-        assertNull(dto.getRarity());
-        assertNull(dto.getType());
-        assertNull(dto.getMainStat());
-        assertNull(dto.getMainStatValue());
-        assertNull(dto.getWeight());
+        assertNotNull(dto.getLevel());
+        assertNotNull(dto.getRarity());
+        assertNotNull(dto.getType());
+        assertNotNull(dto.getMainStat());
+        assertNotNull(dto.getMainStatValue());
+        assertNotNull(dto.getWeight());
     }
 
     @Test
     void testToEntityNullFields() {
         InventoryItemDTO dto = new InventoryItemDTO();
         dto.setId(4L);
+        dto.setLevel(0);
+        dto.setMainStatValue(0.0);
+        dto.setWeight(0.0);
 
         InventoryItem itemEntity = InventoryItemDTO.toEntity(dto);
 

@@ -84,6 +84,8 @@ public class InventoryItemDTO {
     }
 
     public static InventoryItem toEntity(InventoryItemDTO itemDTO) {
+        if (itemDTO == null)
+            return null;
         InventoryItem item = new InventoryItem();
         item.setId(itemDTO.getId());
         item.setLevel(itemDTO.getLevel());
